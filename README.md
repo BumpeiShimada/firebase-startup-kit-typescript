@@ -1,9 +1,25 @@
 ## Purpose
 
-This is a start-up kit for a Firebase web project, which uses React.js, Material-UI and TypeScript.  
+This is a start-up kit for a Firebase web project, which uses React.js, Material-UI and TypeScript.   
+You only need **15 minutes** to start up!
 
-This is the TypeScript version of [firebase-startup-kit](https://github.com/snakajima/firebase-startup-kit).  
-The original repository was created by [@snakajima](https://github.com/snakajima).
+After finishing an instruction below, you'll see an app which has:
+- Header and Drawer with page navigations
+- Routing function by react-router-dom
+- Logging in function by Firebase
+    - When a user signs up, their data will be stored on Cloud Firestore
+- Settings ready to deploy to Firebase Hosting
+
+## Screen Shots
+
+### Routing
+![smartphone_routing](https://raw.github.com/wiki/BumpeiShimada/firebase-startup-kit-typescript/images/smartphone_routing.gif)
+
+### Sign Up
+![smartphone_signup](https://raw.github.com/wiki/BumpeiShimada/firebase-startup-kit-typescript/images/smartphone_signup.gif)
+
+### Desktop ver.
+![desktop](https://raw.github.com/wiki/BumpeiShimada/firebase-startup-kit-typescript/images/desktop.gif)
 
 ## Instruction
 
@@ -41,3 +57,8 @@ Your app is ready to be deployed!
 ### `firebase deploy`
 
 Deploys the app to the Firebase cloud. You need to run "yarn build" before the deployment.
+
+## Acknowledgment
+
+This is the TypeScript version of [firebase-startup-kit](https://github.com/snakajima/firebase-startup-kit).  
+Thank you very much [@snakajima](https://github.com/snakajima)!
