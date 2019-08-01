@@ -35,7 +35,6 @@ class App extends Component<{}, State> {
       width: 0,
       height: 0
     };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
@@ -53,23 +52,13 @@ class App extends Component<{}, State> {
         }
       }
     );
-    this.updateWindowDimensions();
-    window.addEventListener("resize", this.updateWindowDimensions);
   }
 
   componentWillUnmount() {
     this.unregisterAuthObserver();
-    window.removeEventListener("resize", this.updateWindowDimensions);
   }
 
   unregisterAuthObserver() {};
-
-  updateWindowDimensions() {
-    this.setState({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  }
 
   render() {
     return (
