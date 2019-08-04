@@ -26,13 +26,12 @@ After finishing an instruction below, you'll see an app which has:
 1. Git clone this repository
 2. Run "npm install firebase-tools -g" to install firebase tools. 
 3. Run "yarn install" once to get necessary node modules.
-4. Run "yarn install" once in the functions directory as well.
-5. Open the firebase console (from https://firebase.google.com) and add a project
-6. From the dashboard of this project, add an app and choose "web" (</>).
-7. From the setting of this app, choose "Config" (in Firebase SDK snippet)
-8. Copy the config file, and paste into src/firebaseConfig.ts file.  
-9. Replace the word "skelton-us" in .firebaserc file with your Firebase project name.
-10. Open the firebase console, and create a Cloud Firestore (make it "secure" for now). 
+4. Open the firebase console (from https://firebase.google.com) and add a project
+5. From the dashboard of this project, add an app and choose "web" (</>).
+6. From the setting of this app, choose "Config" (in Firebase SDK snippet)
+7. Copy the config file, and paste into src/firebaseConfig.ts file.  
+8. Replace the word "skelton-us" in .firebaserc file with your Firebase project name.
+9. Open the firebase console, and create a Cloud Firestore (make it "secure" for now). 
 
 ## Available Scripts
 
