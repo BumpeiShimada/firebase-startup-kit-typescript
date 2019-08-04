@@ -4,7 +4,6 @@ import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import theme from "./theme";
 import { CssBaseline } from "@material-ui/core";
 import Home from './Home';
-import "./App.css";
 import * as firebase from "firebase";
 import "firebase/firestore";
 import firebaseConfig from "./firebaseConfig";

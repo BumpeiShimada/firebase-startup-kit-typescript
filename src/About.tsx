@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import { Typography, withStyles } from "@material-ui/core";
-import "./App.css";
 import { createStyles, Theme } from "@material-ui/core";
 import Header from "./Header";
 import { User } from "firebase";
