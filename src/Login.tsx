@@ -7,10 +7,6 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { User } from "firebase";
 import Header from "./Header";
 
-interface Props {
-  user: User | null;
-}
-
 const uiConfig = {
   signInFlow: 'popup',
   signInOptions: [
@@ -31,7 +27,8 @@ const uiConfig = {
   }
 };
 
-const Login = ({ user }: Props) => {
+function Login(props: { user: User | null }) {
+  const { user } = props;
   if (!user) {
     return (
       <>
