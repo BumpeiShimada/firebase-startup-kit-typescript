@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import theme from "./theme";
@@ -21,29 +21,16 @@ interface NewValue {
   name?: string | null;
 }
 
-interface State {
-  user: User | null;
-  width: number | null;
-  height: number | null;
-}
-
-class App extends Component<{}, State> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      user: null,
-      width: 0,
-      height: 0
-    };
-  }
-
-  componentDidMount() {
-    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged (
+function App() {
+  const [user, setUser] = useState<User | null>(null);
+  
+  useEffect(()=>{
+    const unregisterAuthObserver = firebase.auth().onAuthStateChanged(
       async (user) => {
-        this.setState({ user: user });
+        setUser(user);
         if (user) {
           const refUser = db.collection("users").doc(user.uid);
-          const newValue: NewValue = { lastAccessed: firebase.firestore.FieldValue.serverTimestamp() };
+          const newValue: NewValue = { lastAccessed:firebase.firestore.FieldValue.serverTimestamp() };
           const doc = (await refUser.get()).data();
           if (!doc || !doc.name) {
             newValue.name = user.displayName;
@@ -52,26 +39,20 @@ class App extends Component<{}, State> {
         }
       }
     );
-  }
-
-  componentWillUnmount() {
-    this.unregisterAuthObserver();
-  }
-
-  unregisterAuthObserver() {};
-
-  render() {
-    return (
-      <MuiThemeProvider theme={theme}>
-        <CssBaseline />
-        <Router>
-          <Route exact path="/" render={() => <Home user={this.state.user} />} />
-          <Route exact path="/login" render={() => <Login user={this.state.user} />} />
-          <Route exact path="/about" render={() => <About user={this.state.user} />} />
-        </Router>
-      </MuiThemeProvider>
-    );
-  }
+    return unregisterAuthObserver;
+  }, []);
+    
+  const params = { user, db };
+  return (
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Route exact path="/" render={(props) => <Home {...props} {...params} />} />
+        <Route exact path="/about" render={(props) => <About {...props} {...params} />} />
+        <Route exact path="/login" render={(props) => <Login {...props} {...params} />} />
+      </Router>
+    </MuiThemeProvider>
+  );
 }
 
 export default App;
