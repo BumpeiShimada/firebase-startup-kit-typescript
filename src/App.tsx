@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import theme from "./theme";
-import { CssBaseline } from "@material-ui/core";
+import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
 import Home from './Home';
 import * as firebase from "firebase";
 import "firebase/firestore";
